@@ -1,0 +1,70 @@
+global:
+  scrape_interval: 15s
+  evaluation_interval: 15s
+
+rule_files:
+  - "rules/*.yml"
+
+scrape_configs:
+  # Prometheus itself
+  - job_name: 'prometheus'
+    static_configs:
+      - targets: ['localhost:9090']
+
+  # AI Server (192.168.50.118)
+  - job_name: 'ai-server'
+    static_configs:
+      - targets: ['192.168.50.118:9100']
+    scrape_interval: 10s
+    metrics_path: /metrics
+    
+  # AI Server GPU Exporter
+  - job_name: 'ai-server-gpu'
+    static_configs:
+      - targets: ['192.168.50.118:9835']
+    scrape_interval: 10s
+    metrics_path: /metrics
+
+  # Storage Server (192.168.50.223)
+  - job_name: 'storage-server'
+    static_configs:
+      - targets: ['192.168.50.223:9100']
+    scrape_interval: 15s
+    metrics_path: /metrics
+
+  # App Server (192.168.50.164)
+  - job_name: 'app-server'
+    static_configs:
+      - targets: ['192.168.50.164:9100']
+    scrape_interval: 15s
+    metrics_path: /metrics
+
+  # User VM (192.168.50.210)
+  - job_name: 'user-vm'
+    static_configs:
+      - targets: ['192.168.50.210:9100']
+    scrape_interval: 15s
+    metrics_path: /metrics
+
+  # Proxmox (60.51.17.102)
+  - job_name: 'proxmox'
+    static_configs:
+      - targets: ['60.51.17.102:9100']
+    scrape_interval: 15s
+    metrics_path: /metrics
+
+  # Dashboard API
+  - job_name: 'dashboard-api'
+    static_configs:
+      - targets: ['localhost:8000']
+    scrape_interval: 30s
+    metrics_path: /api/health
+
+alerting:
+  alertmanagers:
+    - static_configs:
+        - targets:
+          # - alertmanager:9093
+
+# Note: Storage retention settings are configured via command-line arguments
+# in docker-compose.yml: --storage.tsdb.retention.time and --storage.tsdb.retention.size
