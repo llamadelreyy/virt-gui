@@ -5,7 +5,7 @@
 
 set -e
 
-GPU_EXPORTER_VERSION="1.2.0"
+GPU_EXPORTER_VERSION="1.2.1"
 GPU_EXPORTER_USER="gpu_exporter"
 GPU_EXPORTER_GROUP="gpu_exporter"
 
@@ -26,9 +26,9 @@ sudo useradd -s /sbin/nologin --system -g ${GPU_EXPORTER_GROUP} ${GPU_EXPORTER_U
 
 # Download and install GPU Exporter
 cd /tmp
-wget https://github.com/utkuozdemir/nvidia_gpu_exporter/releases/download/v${GPU_EXPORTER_VERSION}/nvidia_gpu_exporter_${GPU_EXPORTER_VERSION}_linux_amd64.tar.gz
+wget https://github.com/utkuozdemir/nvidia_gpu_exporter/releases/download/v${GPU_EXPORTER_VERSION}/nvidia_gpu_exporter-${GPU_EXPORTER_VERSION}-linux-amd64.tar.gz
 
-tar -xzf nvidia_gpu_exporter_${GPU_EXPORTER_VERSION}_linux_amd64.tar.gz
+tar -xzf nvidia_gpu_exporter-${GPU_EXPORTER_VERSION}-linux-amd64.tar.gz
 sudo cp nvidia_gpu_exporter /usr/local/bin/
 
 # Set permissions
