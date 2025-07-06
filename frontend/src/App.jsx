@@ -118,30 +118,12 @@ function App() {
       <header className="border-b border-gray-200 bg-white shadow-sm">
         <div className="px-6 py-4">
           <div className="flex items-center justify-between">
-            <div className="flex items-center gap-3">
+            <div className="flex items-center">
               <img
                 src={logoImage}
-                alt="Company Logo"
+                alt="Pixelspace Logo"
                 className="h-12 w-auto object-contain"
-                onError={(e) => {
-                  e.target.style.display = 'none';
-                  e.target.nextSibling.style.display = 'block';
-                }}
               />
-              <div
-                className="h-12 w-12 bg-[#46a4a1] rounded-lg flex items-center justify-center text-white font-bold text-xl"
-                style={{ display: 'none' }}
-              >
-                L
-              </div>
-              <div>
-                <h1 className="text-2xl font-bold text-gradient">
-                  Infrastructure Monitoring Dashboard
-                </h1>
-                <p className="text-sm text-gray-600">
-                  Real-time monitoring for AI, App, and Storage servers
-                </p>
-              </div>
             </div>
             
             <div className="flex items-center gap-4">
