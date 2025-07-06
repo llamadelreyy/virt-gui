@@ -11,8 +11,14 @@ class Settings(BaseSettings):
     # CORS Configuration
     allowed_origins: List[str] = [
         "http://localhost:3000",
+        "http://localhost:1000",
         "http://192.168.50.73:3000",
-        "http://192.168.50.73"
+        "http://192.168.50.73:1000",
+        "http://192.168.50.73",
+        "http://60.51.17.97:1000",
+        "http://60.51.17.97:3000",
+        "http://60.51.17.97",
+        "*"  # Allow all origins for development
     ]
     
     # Server IPs

@@ -3,9 +3,9 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/Card"
 
 const MetricsChart = ({ 
   title, 
-  data = [], 
-  dataKeys = [], 
-  colors = ['#3b82f6', '#ef4444', '#10b981', '#f59e0b'],
+  data = [],
+  dataKeys = [],
+  colors = ['#46a4a1', '#000000', '#6b7280', '#f59e0b'],
   type = 'line',
   height = 300,
   showGrid = true,

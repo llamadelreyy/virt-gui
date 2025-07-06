@@ -5,25 +5,37 @@
 @layer base {
   :root {
     --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    --foreground: 0 0% 0%;
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 0 0% 0%;
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-    --primary: 221.2 83.2% 53.3%;
-    --primary-foreground: 210 40% 98%;
-    --secondary: 210 40% 96%;
-    --secondary-foreground: 222.2 84% 4.9%;
-    --muted: 210 40% 96%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-    --accent: 210 40% 96%;
-    --accent-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 0 0% 0%;
+    --primary: 177 19% 52%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 0 0% 96%;
+    --secondary-foreground: 0 0% 0%;
+    --muted: 0 0% 96%;
+    --muted-foreground: 0 0% 45%;
+    --accent: 177 19% 52%;
+    --accent-foreground: 0 0% 100%;
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 221.2 83.2% 53.3%;
-    --radius: 0.5rem;
+    --destructive-foreground: 0 0% 100%;
+    --border: 0 0% 90%;
+    --input: 0 0% 90%;
+    --ring: 177 19% 52%;
+    --radius: 0.75rem;
+    
+    /* Custom cyan variations - #46a4a1 base */
+    --cyan-50: 177 19% 95%;
+    --cyan-100: 177 19% 90%;
+    --cyan-200: 177 19% 80%;
+    --cyan-300: 177 19% 70%;
+    --cyan-400: 177 19% 60%;
+    --cyan-500: 177 19% 52%;
+    --cyan-600: 177 19% 45%;
+    --cyan-700: 177 19% 35%;
+    --cyan-800: 177 19% 25%;
+    --cyan-900: 177 19% 15%;
   }
 
   .dark {
@@ -110,7 +122,72 @@
   }
   
   .text-gradient {
-    @apply bg-gradient-to-r from-primary to-blue-600 bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-primary bg-clip-text text-transparent;
+  }
+  
+  .sidebar-server-card {
+    @apply relative overflow-hidden rounded-xl border-2 border-gray-200 bg-white p-6 cursor-pointer transition-all duration-300 hover:shadow-lg;
+  }
+  
+  .sidebar-server-card:hover {
+    border-color: #46a4a1;
+  }
+  
+  .sidebar-server-card.active {
+    border-color: #46a4a1;
+    background: linear-gradient(to bottom right, rgba(70, 164, 161, 0.1), white);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  }
+  
+  .sidebar-server-card:hover .server-icon {
+    @apply scale-110;
+    color: #46a4a1;
+  }
+  
+  .sidebar-server-card.active .server-icon {
+    color: #46a4a1;
+  }
+  
+  .server-icon {
+    @apply transition-all duration-300;
+  }
+  
+  .detail-panel {
+    @apply animate-fade-in;
+  }
+  
+  .metric-card-enhanced {
+    @apply bg-white border border-gray-200 rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300;
+  }
+  
+  .metric-card-enhanced:hover {
+    border-color: rgba(70, 164, 161, 0.5);
+  }
+  
+  .status-dot-online {
+    @apply w-3 h-3 rounded-full animate-pulse;
+    background-color: #46a4a1;
+  }
+  
+  .status-dot-offline {
+    @apply w-3 h-3 bg-gray-400 rounded-full;
+  }
+  
+  .status-dot-warning {
+    @apply w-3 h-3 bg-yellow-500 rounded-full animate-pulse;
+  }
+  
+  .progress-bar-cyan {
+    @apply bg-gray-100 rounded-full overflow-hidden;
+  }
+  
+  .progress-fill-cyan {
+    @apply h-full transition-all duration-500 ease-out;
+    background: linear-gradient(to right, #46a4a1, rgba(70, 164, 161, 0.8));
+  }
+  
+  .chart-container-enhanced {
+    @apply bg-white border border-gray-200 rounded-xl p-6 shadow-sm;
   }
 }
 
